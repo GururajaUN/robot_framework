@@ -5,7 +5,7 @@ pipeline {
             agent { docker {
                 image 'ppodgorsek/robot-framework:latest'
                        
-                args '--shm-size=1g' }
+                args '--shm-size=2g' }
             }
 
             options { skipDefaultCheckout() }
