@@ -5,7 +5,7 @@ pipeline {
             agent { docker {
                 image 'ppodgorsek/robot-framework:latest'
                        
-                args '--shm-size=2g' }
+                args '--shm-size=2g -v /Users/gururajaun/jenkins/robot_framework:/var/log/chromedriver:Z' }
             }
 
             options { skipDefaultCheckout() }
