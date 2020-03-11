@@ -4,6 +4,7 @@ pipeline {
         stage('robot test') {
             agent { docker {
                 image 'ppodgorsek/docker-framework:latest'}
+                label 'docker'
                 args '--shm-size=1g'
             }
 
