@@ -15,8 +15,8 @@ pipeline {
             }
             steps {
                 sh '''
-                export ROBOT_TESTS_DIR=/Users/gururajaun/jenkins/robot_framework/robots-tests
-                export ROBOT_REPORTS_DIR=/Users/gururajaun/jenkins/robot_framework/robots-reports
+                export ROBOT_TESTS_DIR=/Users/gururajaun/jenkins/robot_framework/robot-tests
+                export ROBOT_REPORTS_DIR=/Users/gururajaun/jenkins/robot_framework/robot-reports
                 /opt/robotframework/bin/run-tests-in-virtual-screen.sh
                 '''
             }
