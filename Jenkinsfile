@@ -3,9 +3,9 @@ pipeline {
     stages {
         stage('robot test') {
             agent { docker {
-                image 'ppodgorsek/docker-framework:latest'}
+                image 'ppodgorsek/docker-framework:latest'
                 label 'docker'
-                args '--shm-size=1g'
+                args '--shm-size=1g' }
             }
 
             options { skipDefaultCheckout() }
