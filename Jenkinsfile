@@ -5,13 +5,13 @@ pipeline {
             agent { docker {
                 image 'ppodgorsek/robot-framework:latest'
                        
-                args '--shm-size=1g' }
+                args '--shm-size=1g --net=host' }
             }
 
             options { skipDefaultCheckout() }
 
             environment {
-                BROWSER = 'chrome'
+                BROWSER = 'firefox'
                 ROBOT_OPTIONS = '--loglevel DEBUG'
             }
             steps {
