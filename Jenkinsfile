@@ -17,7 +17,7 @@ pipeline {
                 df -h
                 echo $PATH
                 printenv
-                cat $ROBOT_OPTIONS
+                echo $ROBOT_OPTIONS
                 ls /opt/robotframework/bin/
                 export ROBOT_TESTS_DIR=$WORKSPACE
                 export ROBOT_REPORTS_DIR=$WORKSPACE/robot-reports
