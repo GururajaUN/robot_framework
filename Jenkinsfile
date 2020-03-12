@@ -16,6 +16,9 @@ pipeline {
                 df -h
                 echo $PATH
                 printenv
+                chmod 777 /scripts/*
+                ls -al /scripts/
+                ls -al /suites/
                 /scripts/run_suite.sh
                 '''
             }
