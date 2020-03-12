@@ -19,9 +19,10 @@ pipeline {
                 printenv
                 echo $ROBOT_OPTIONS
                 ls -al /opt/robotframework/bin/
+                chmod 777 /opt/robotframework/bin/*
                 export ROBOT_TESTS_DIR=$WORKSPACE
                 export ROBOT_REPORTS_DIR=$WORKSPACE/robot-reports
-                sudo /opt/robotframework/bin_1/run-tests-in-virtual-screen.sh || true
+                /opt/robotframework/bin_1/run-tests-in-virtual-screen.sh || true
                 cat /var/log/chromedriver
                 '''
             }
