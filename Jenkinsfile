@@ -14,6 +14,7 @@ pipeline {
             }
             steps {
                 sh '''
+                whoami
                 df -h
                 echo $PATH
                 printenv
@@ -22,7 +23,7 @@ pipeline {
                 mv /opt/robotframework/bin /opt/robotframework/bin_1
                 export ROBOT_TESTS_DIR=$WORKSPACE
                 export ROBOT_REPORTS_DIR=$WORKSPACE/robot-reports
-                /opt/robotframework/bin_1/run-tests-in-virtual-screen.sh || true
+                sudo /opt/robotframework/bin_1/run-tests-in-virtual-screen.sh || true
                 cat /var/log/chromedriver
                 '''
             }
