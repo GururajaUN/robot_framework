@@ -23,6 +23,7 @@ pipeline {
                 export ROBOT_REPORTS_DIR=$WORKSPACE/robot-reports
                 /opt/robotframework/bin/run-tests-in-virtual-screen.sh || true
                 cat /var/log/chromedriver
+                ls -al /var/log/
                 '''
             }
         }
