@@ -5,7 +5,7 @@ pipeline {
             agent { docker {
                 image 'ppodgorsek/robot-framework:latest'
                        
-                args '--shm-size=2g -v /Users/gururajaun/jenkins/robot_framework:/var/log/chromedriver:Z' }
+                args '--shm-size=1g -v /Users/gururajaun/.jenkins/workspace/pipelinetest:/opt/robotframework/tests -v /Users/gururajaun/.jenkins/workspace/pipelinetest/robot-report:/opt/robotframework/reports:Z' }
             }
 
             options { skipDefaultCheckout() }
@@ -15,9 +15,8 @@ pipeline {
             }
             steps {
                 sh '''
-                export ROBOT_TESTS_DIR=$WORKSPACE
-                export ROBOT_REPORTS_DIR=$WORKSPACE/robot-reports
-                /opt/robotframework/bin/run-tests-in-virtual-screen.sh --shm-size=1g
+                ls -al /opt/robotframework/tests
+                /opt/robotframework/bin/run-tests-in-virtual-screen.sh
                 '''
             }
         }
