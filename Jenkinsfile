@@ -7,8 +7,6 @@ pipeline {
                 args '--shm-size=1g' }
             }
 
-            options { skipDefaultCheckout() }
-
             environment {
                 BROWSER = 'chrome'
             }
