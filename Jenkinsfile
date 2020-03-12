@@ -18,6 +18,7 @@ pipeline {
                 df -h
                 echo $PATH
                 printenv
+                /scripts/run_suite.sh
                 '''
             }
         }
