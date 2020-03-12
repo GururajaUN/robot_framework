@@ -3,24 +3,21 @@ pipeline {
     stages {
         stage('robot test') {
             agent { docker {
-                image 'ppodgorsek/robot-framework:3.2.2' 
-                args '--shm-size=1g -v $WORKSPACE:/opt/robotframework/tests:Z -v $WORKSPACE/robot-reports:/opt/robotframework/reports:Z' }
+                image 'ypasmk/robot-framework:latest' 
+                args '--shm-size=1g -v $WORKSPACE/output:/output -v $WORKSPACE/robot-tests:/suites -v $WORKSPACE/scripts:/scripts -v $WORKSPACE/robot-reports:/reports --security-opt seccomp:unconfined' }
             }
 
             options { skipDefaultCheckout() }
 
             environment {
                 BROWSER = 'chrome'
+                USERNAME = 'Gururaja'
             }
             steps {
                 sh '''
                 df -h
                 echo $PATH
                 printenv
-                ls -al /opt/robotframework/bin/
-                ls -al /opt/robotframework/tests/
-                /opt/robotframework/bin/run-tests-in-virtual-screen.sh || true
-                ls -al /var/log/
                 '''
             }
         }
