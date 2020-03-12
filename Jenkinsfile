@@ -17,10 +17,12 @@ pipeline {
                 df -h
                 echo $PATH
                 printenv
-                echo $ROBOT_OPTIONS
                 ls -al /opt/robotframework/bin/
                 export ROBOT_TESTS_DIR=$WORKSPACE/robot-tests
                 export ROBOT_REPORTS_DIR=$WORKSPACE/robot-reports
+                echo $ROBOT_TESTS_DIR
+                ls -al $ROBOT_TESTS_DIR
+                ls -al /opt/robotframework/tests/
                 /opt/robotframework/bin/run-tests-in-virtual-screen.sh || true
                 ls -al /var/log/
                 '''
