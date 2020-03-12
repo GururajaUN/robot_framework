@@ -10,7 +10,7 @@ pipeline {
             options { skipDefaultCheckout() }
 
             environment {
-                BROWSER = 'chrome'
+                BROWSER = 'firefox'
             }
             steps {
                 sh '''
