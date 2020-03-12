@@ -16,6 +16,7 @@ pipeline {
             }
             steps {
                 sh '''
+                printenv
                 export ROBOT_TESTS_DIR=$WORKSPACE
                 export ROBOT_REPORTS_DIR=$WORKSPACE/robot-reports
                 /opt/robotframework/bin/run-tests-in-virtual-screen.sh || true
